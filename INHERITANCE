@@ -1,0 +1,65 @@
+class Employee 
+ {
+    int emp_id, basic_salary;
+    String emp_name;
+
+    Employee(String n, int id, int salary) 
+    {
+        emp_id = id;
+        basic_salary = salary;
+        emp_name = n;
+    }
+
+    void print() 
+    {
+        System.out.println("Employee ID: " + emp_id);
+        System.out.println("Employee Name: " + emp_name);
+
+        //Calculating gross salary
+        int hra = basic_salary * 10 / 100;
+        int ta = basic_salary * 15 / 100;
+        int gross_salary = hra + ta + basic_salary;
+
+        System.out.println("Gross salary : " + gross_salary);
+        System.out.println("******\n");
+    }
+}
+
+class TeamLeader extends Employee 
+{
+    TeamLeader(String n, int id, int salary) 
+    {
+        super(n, id, salary);
+    }
+}
+
+class TeamManager extends Employee 
+{
+    TeamManager(String n, int id, int salary) 
+    {
+        super(n, id, salary);
+    }
+}
+
+class Developer extends Employee 
+{
+    Developer(String n, int id, int salary) 
+    {
+        super(n, id, salary);
+    }
+}
+
+public class Demo3
+{
+    public static void main(String[] args) 
+    {
+        TeamLeader tl= new TeamLeader("Parth", 23, 30000);
+        tl.print(); 
+
+        TeamManager tm= new TeamManager("Vedang" ,55, 70000);
+        tm.print();
+
+        Developer d= new Developer("jay", 45, 60000) ;
+        d.print();
+    }
+}
